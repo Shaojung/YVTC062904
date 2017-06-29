@@ -10,11 +10,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Spinner spinner;
+    TextView tv, tv2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        tv = (TextView) findViewById(R.id.textView);
+        tv2 = (TextView) findViewById(R.id.textView2);
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -24,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();
 
                 String cityArray[] = getResources().getStringArray(R.array.city);
-                Toast.makeText(MainActivity.this, cityArray[position], Toast.LENGTH_SHORT).show();
-
+                // Toast.makeText(MainActivity.this, cityArray[position], Toast.LENGTH_SHORT).show();
+                tv.setText(cityArray[position]);
             }
 
             @Override
@@ -33,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void click1(View v)
+    {
+        int sel = spinner.getSelectedItemPosition();
+        String cityArray[] = getResources().getStringArray(R.array.city);
+        tv2.setText(cityArray[sel]);
     }
 
 
