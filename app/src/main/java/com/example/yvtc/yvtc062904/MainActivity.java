@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +19,13 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+//                TextView tv = (TextView) view;
+//                String str = tv.getText().toString();
+//                Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();
+
+                String cityArray[] = getResources().getStringArray(R.array.city);
+                Toast.makeText(MainActivity.this, cityArray[position], Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
